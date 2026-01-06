@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Quran Academy - Free Trial Available</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+
+        .profile-title {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .profile-subtitle {
+            color: rgba(255,255,255,0.95);
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            color: white;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        .links-section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .link-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px 24px;
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .link-card:hover::before {
+            left: 100%;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .link-card.primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: 3px solid white;
+        }
+
+        .link-card.whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+        }
+
+        .link-icon {
+            font-size: 32px;
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.2);
+            border-radius: 12px;
+        }
+
+        .link-card.primary .link-icon,
+        .link-card.whatsapp .link-icon {
+            background: rgba(255,255,255,0.25);
+        }
+
+        .link-content {
+            flex: 1;
+            text-align: left;
+        }
+
+        .link-title {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .link-description {
+            font-size: 13px;
+            opacity: 0.85;
+        }
+
+        .link-arrow {
+            font-size: 20px;
+            opacity: 0.6;
+            transition: transform 0.3s ease;
+        }
+
+        .link-card:hover .link-arrow {
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 35px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .social-icon:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-3px);
+        }
+
+        .footer {
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+            margin-top: 40px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 640px) {
+            .profile-title {
+                font-size: 24px;
+            }
+            
+            .profile-subtitle {
+                font-size: 14px;
+            }
+
+            .stats {
+                gap: 20px;
+            }
+
+            .stat-number {
+                font-size: 20px;
+            }
+
+            .link-card {
+                padding: 18px 20px;
+            }
+
+            .link-icon {
+                font-size: 28px;
+                width: 45px;
+                height: 45px;
+            }
+
+            .link-title {
+                font-size: 15px;
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.3);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 8px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <div class="profile-image">📖</div>
+            <h1 class="profile-title">Kaffah Priority</h1>
+            <p class="profile-subtitle">
+                Learn Quran Online with Native Arab Teachers<br>
+                🌍 Serving Students from 54 Countries | 🎓 1000+ Success Stories
+            </p>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">54+</span>
+                    <span class="stat-label">Countries</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1000+</span>
+                    <span class="stat-label">Students</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4.9/5</span>
+                    <span class="stat-label">Rating</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Links Section -->
+        <div class="links-section">
+            <!-- Link 1: Free Trial -->
+            <a href="#" class="link-card primary" onclick="alert('Update this link with your registration form URL'); return false;">
+                <div class="link-icon">🎁</div>
+                <div class="link-content">
+                    <span class="link-title">FREE TRIAL CLASS<span class="badge">Popular</span></span>
+                    <span class="link-description">English & Indonesian • Book Your Free Session Now</span>
+                </div>
+                <span class="link-arrow">→</span>
+            </a>
+
+            <!-- Link 2: WhatsApp -->
+            <a href="https://wa.me/6281234567890?text=Assalamualaikum,%20I'm%20interested%20in%20the%20Quran%20program" class="link-card whatsapp" target="_blank">
+                <div class="link-icon">💬</div>
+                <div class="link-content">
+                    <span class="link-title">Chat WhatsApp - Quick Response</span>
+                    <span class="link-description">Multi-language Support • Get Instant Answers</span>
+                </div>
+                <span class="link-arrow">→</span>
+            </a>
+
+            <!-- Link 3: International Programs -->
+            <a href="#" class="link-card" onclick="alert('Update this link with your programs page URL'); return false;">
+                <div class="link-icon">🌍</div>
+                <div class="link-content">
+                    <span class="link-title">Programs for International Students</span>
+                    <span class="link-description">Tajweed • Memorization • Islamic Studies</span>
+                </div>
+                <span class="link-arrow">→</span>
+            </a>
+
+            <!-- Link 4: Success Stories -->
+            <a href="#" class="link-card" onclick="alert('Update this link with your testimonials page URL'); return false;">
+                <div class="link-icon">⭐</div>
+                <div class="link-content">
+                    <span class="link-title">Success Stories from 54 Countries</span>
+                    <span class="link-description">Real Reviews • Student Testimonials • Results</span>
+                </div>
+                <span class="link-arrow">→</span>
+            </a>
+
+            <!-- Link 5: Free E-book -->
+            <a href="#" class="link-card" onclick="alert('Update this link with your e-book download URL'); return false;">
+                <div class="link-icon">📚</div>
+                <div class="link-content">
+                    <span class="link-title">FREE E-book: "Raising Quran Lovers"</span>
+                    <span class="link-description">English Edition • Instant Download</span>
+                </div>
+                <span class="link-arrow">→</span>
+            </a>
+
+            <!-- Link 6: Student Activities -->
+            <a href="#" class="link-card" onclick="alert('Update this link with your video gallery URL'); return false;">
+                <div class="link-icon">🎥</div>
+                <div class="link-content">
+                    <span class="link-title">Watch Student Activities & Classes</span>
+                    <span class="link-description">Behind the Scenes • Learning Journey</span>
+                </div>
+                <span class="link-arrow">→</span>
+            </a>
+        </div>
+
+        <!-- Social Media Links -->
+        <div class="social-links">
+            <a href="https://instagram.com/yourpage" class="social-icon" target="_blank" title="Instagram">📷</a>
+            <a href="https://youtube.com/yourchannel" class="social-icon" target="_blank" title="YouTube">▶️</a>
+            <a href="https://facebook.com/yourpage" class="social-icon" target="_blank" title="Facebook">👍</a>
+            <a href="https://tiktok.com/@yourpage" class="social-icon" target="_blank" title="TikTok">🎵</a>
+            <a href="mailto:info@yourquranacademy.com" class="social-icon" title="Email">✉️</a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2024 Online Quran Academy | Makassar, Indonesia</p>
+        </div>
+    </div>
+</body>
+  </html>
